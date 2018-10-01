@@ -1,0 +1,16 @@
+# Mac OS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Maven
+log/
+target/
+
+# Intellij
+.idea/
+*.iml
+*.iws
