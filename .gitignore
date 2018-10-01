@@ -14,3 +14,14 @@ target/
 .idea/
 *.iml
 *.iws
+
+# NetBeans
+node_modules/
+dist/
+*.log
+nbproject/private/*    
+*.bak
+*.orig
+*~
+*.log
+
