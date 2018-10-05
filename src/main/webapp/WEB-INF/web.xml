@@ -12,4 +12,7 @@
     <url-pattern>/test</url-pattern>
   </servlet-mapping>
 
+  <listener>
+    <listener-class>app.ApplicationInitializer</listener-class>
+  </listener>
 </web-app>
