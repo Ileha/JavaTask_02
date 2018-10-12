@@ -22,9 +22,14 @@ public class Rename extends ICommand {
 
     //{cmd:"Rename",data:{name="name", id=arg1}}
     @Override
-    public void OnExecute(JSONObject data, JSONObject out) throws Exception {
+    public SendingMode OnExecute(JSONObject data, JSONObject out) throws Exception {
         GetStatement().setString(1, data.getString("name"));
         GetStatement().setInt(2, data.getInt("id"));
-        out.put("status", GetStatement().executeUpdate() != 0);
+        boolean success = GetStatement().executeUpdate() != 0;
+        if (success) {
+            out.put("cmd", "Rename");
+            out.put("data", data);
+        }
+        return SendingMode.TO_ALL;
     }
 }

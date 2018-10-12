@@ -19,11 +19,17 @@ public class Delete extends ICommand {
         return "Delete";
     }
 
-    //{cmd:"Delete",data:{id=arg1}}
     @Override
-    public void OnExecute(JSONObject data, JSONObject out) throws Exception {
+    protected SendingMode OnExecute(JSONObject data, JSONObject out) throws Exception {
         GetStatement().setObject(1, data.getString("id"));
-        out.put("status", GetStatement().executeUpdate() != 0);
+        boolean success = GetStatement().executeUpdate() != 0;
+        if (success) {
+            out.put("cmd", "Delete");
+            out.put("data", data);
+        }
+        return SendingMode.TO_ALL;
     }
-    //{"res":{status:true/false}}
+
+    //{cmd:"Delete",data:{id=arg1}}
+    //{cmd:"Delete",data:{id=arg1}}
 }

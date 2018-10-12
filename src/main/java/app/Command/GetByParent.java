@@ -18,19 +18,23 @@ public class GetByParent extends ICommand {
 
     //{cmd:"GetByParent",data:{p_id=arg1}}
     @Override
-    public void OnExecute(JSONObject data, JSONObject out) throws Exception {
-        GetStatement().setObject(1, data.getInt("p_id"));
+    public SendingMode OnExecute(JSONObject data, JSONObject out) throws Exception {
+        int parent_id = data.getInt("p_id");
+        GetStatement().setObject(1, parent_id);
         ResultSet resultSet = GetStatement().executeQuery();
         JSONArray array = new JSONArray();
         while (resultSet.next()) {
-//            out.printf("id = %s, name = %s, type = %s</br>", resultSet.getString("id"), resultSet.getString("name"), resultSet.getString("type"));
             JSONObject obj = new JSONObject();
             obj.put("id", resultSet.getInt("id"));
             obj.put("name", resultSet.getString("name"));
             obj.put("type", resultSet.getString("type"));
             array.put(obj);
         }
-        out.put("array", array);
-        //[{},{}]
+        JSONObject data_out = new JSONObject();
+        data_out.put("array", array);
+        data_out.put("parent", parent_id);
+        out.put("data", data_out);
+        out.put("cmd", "SetChild");
+        return SendingMode.TO_SENDER;
     }
 }

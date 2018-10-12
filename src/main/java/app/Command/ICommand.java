@@ -22,13 +22,30 @@ public abstract class ICommand {
 
     protected abstract String PreparedRequest();
     public abstract String GetName();
-    protected abstract void OnExecute(JSONObject data, JSONObject out) throws Exception;
-    public final void Execute(JSONObject data, PrintWriter out) throws Exception {
+
+    //input: {cmd:"cmd_name", data:{data}}
+    //output: {cmd:"cmd_name", data:{data}}
+
+    /*available:
+
+        {cmd:"Delete",data:{id}}
+        {cmd:"GetByParent",data:{p_id}}
+        {cmd:"MoveTo",data:{id, p_id}}
+        {cmd:"Rename",data:{name, id}}
+        {cmd:"InsertContainer", data:{p_id,name}}
+        {cmd:"InsertEnd", data:{p_id,name}}
+
+    */
+
+    protected abstract SendingMode OnExecute(JSONObject data, JSONObject out) throws Exception;
+    public final SendingMode Execute(JSONObject data, StringBuilder out) throws Exception {
         JSONObject json_out = new JSONObject();
-        JSONObject res = new JSONObject();
-        json_out.put("res", res);
-        OnExecute(data, res);
-        out.println(json_out.toString());
+        SendingMode res;
+        synchronized (statement) {
+            res = OnExecute(data, json_out);
+        }
+        out.append(json_out.toString());
+        return res;
     }
 
     protected PreparedStatement GetStatement() {

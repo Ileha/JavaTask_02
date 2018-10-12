@@ -1,4 +1,107 @@
 .selected {
     background: #0f0;
 }
+.node_icon {
+    list-style: none;
+    background: url(../resources/folder.png) no-repeat;
+    padding-left: 24px;
+    background-size: auto 15px;
+}
+.item_icon {
+    list-style: none;
+    background: url(../resources/file.png) no-repeat;
+    padding-left: 24px;
+    background-size: auto 15px;
+}
+.node_open {
+    list-style: none;
+    background: url(../resources/open_folder.png) no-repeat;
+    padding-left: 24px;
+    background-size: auto 15px;
+}
+.node_load {
+    list-style: none;
+    background: url(../resources/loading.gif) no-repeat;
+    padding-left: 24px;
+    background-size: auto 15px;
+}
 
+.menu {
+    position:absolute;
+    top:100%;
+    left:0;
+    z-index:1000;
+    float:left;
+    min-width:160px;
+    padding:5px 0;
+    margin:2px 0 0;
+    font-size:14px;
+    text-align:left;
+    list-style:none;
+    background-color:#fff;
+    -webkit-background-clip:padding-box;
+    background-clip:padding-box;
+    border:1px solid #ccc;
+    border:1px solid rgba(0,0,0,.15);
+    border-radius:4px;
+    -webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);
+    box-shadow:0 6px 12px rgba(0,0,0,.175);
+    opacity: 0;
+    pointer-events: none;
+}
+.show-meny {
+    opacity: 1;
+    pointer-events: auto;
+}
+.menu>ul>li>a{
+    text-decoration: none;
+    display:block;
+    padding:3px 20px;
+    clear:both;
+    font-weight:400;
+    line-height:1.42857143;
+    color:#333;
+    white-space:nowrap
+}
+
+.menu>ul>li {
+    list-style: none;
+}
+
+.menu>ul>li>a:hover,
+.menu>ul>li>a:focus{
+    color:#262626;
+    text-decoration:none;
+    background-color:#0071D3
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+    background-color: #999;
+}
+
+.dark {
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.window {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+    border: 3px solid #0000cc;
+    border-radius: 10px;
+    color: #0000cc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: #fff;
+}

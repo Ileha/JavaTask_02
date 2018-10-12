@@ -29,25 +29,25 @@ public class TestHandler extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        Scanner in = null;
-        PrintWriter pw = httpServletResponse.getWriter();
+//        Scanner in = null;
+//        PrintWriter pw = httpServletResponse.getWriter();
 
-        BufferedReader rd = new BufferedReader(new InputStreamReader(httpServletRequest.getInputStream()));
-        StringBuilder res = new StringBuilder();
-        String line;
-        while ((line = rd.readLine()) != null) {
-            res.append(line);
-        }
-        rd.close();
-
-        try {
-            JSONObject obj = new JSONObject(res.toString());
-            String pageName = obj.getString("cmd");
-            JSONObject data = obj.getJSONObject("data");
-            CommandBagSingleton.getInstance().GetCommand(pageName).Execute(data, pw);
-        } catch (Exception e) {
-            pw.println(e.toString());
-        }
+//        BufferedReader rd = new BufferedReader(new InputStreamReader(httpServletRequest.getInputStream()));
+//        StringBuilder res = new StringBuilder();
+//        String line;
+//        while ((line = rd.readLine()) != null) {
+//            res.append(line);
+//        }
+//        rd.close();
+//
+//        try {
+//            JSONObject obj = new JSONObject(res.toString());
+//            String pageName = obj.getString("cmd");
+//            JSONObject data = obj.getJSONObject("data");
+//            CommandBagSingleton.getInstance().GetCommand(pageName).Execute(data, pw);
+//        } catch (Exception e) {
+//            pw.println(e.toString());
+//        }
 
 
 //        for (Part p:httpServletRequest.getParts()) {

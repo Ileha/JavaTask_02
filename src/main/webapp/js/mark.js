@@ -1,35 +1,50 @@
-var ul = document.getElementById("main_ul");
+var stateenum = Object.freeze(
+    {
+        open: 1,
+        close: 2,
+        loading: 3
+    }
+);
 
-ul.ondblclick = function(event) {
+dom_node[1].ondblclick = function(event) {
     var target = event.target;
-    if (target.tagName != "LI") return;
-    if (IsLeaf(target)) {
-//        DBlOpenLeaf(target);
+    if (target.root_id === undefined) return;
+    if (!IsLeaf(target)) {
+        if (!target.load) {
+            SetFolderState(stateenum.loading, target);
+            GetNodeByParent(target.root_id);
+            setTimeout(DBlOpenNode, 2000, target);
+        }
+        else {
+            DBlOpenNode(target);
+        }
     }
-    else {
-        DBlOpenNode(target);
-    }     
-}
-ul.onclick = function(event) {
-   var target = event.target;
-    if (target.tagName != "LI") return;
-    if (IsLeaf(target)) {
-        OpenLeaf(target);
-    }
-    else {
-        
-    }
-}
+};
+
+//main_panel.onclick = function(event) {
+//    var target = event.target;
+//    if (target.tagName != "LI") return;
+//
+//}
 
 function IsLeaf(target) {
-    var node = target.childElementCount;
-    if (node == 0) return true; // нет детей
-    else { return false; }
+    return (target.t === "f");
 }
 function DBlOpenNode(target) {
-    var node = target.getElementsByTagName('ul')[0];
-    node.style.display = node.style.display ? '' : 'none';
+    target.contain.style.display = target.contain.style.display ? '' : 'none';
+    if (!target.contain.style.display) {
+        SetFolderState(stateenum.open, target);
+    }
+    else{
+        SetFolderState(stateenum.close, target);
+    }
 }
-function OpenLeaf(target) {
-    target.classList.toggle("selected");
+function SetFolderState(state, target) {    
+    target.classList.toggle("node_open", 1===state);
+    target.classList.toggle("node_icon", 2===state);
+    target.classList.toggle("node_load", 3===state);
 }
+
+//function OpenLeaf(target) {
+//    target.classList.toggle("selected");
+//}

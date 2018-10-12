@@ -2,77 +2,49 @@
 
 <html>
     <head>
-        <script src="js/jquery-3.2.1.min.js"/></script>
-        <title>TODO supply a title</title>
+        <title>Tree</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/mark_style.css" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-<!--        <div class="dropdown">
-            <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                  Dropdown
-                  <span class="caret"></span>
-                </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Действие</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Другое действие</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Что-то еще</a></li>
-              <li role="presentation" class="divider"></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Отдельная ссылка</a></li>
+        
+        <div id="main_panel">
+            <ul>
+                
             </ul>
         </div>
         
-        <div class="btn-group">
-        <button class="btn dropdown-toggle" data-toggle="dropdown">Действие <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Действие</a></li>
-              <li><a href="#">Другое действие</a></li>
-              <li><a href="#">Еще и еще</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Отделенный пункт</a></li>
+        <menu id="meny_end" class="menu">
+            <ul>
+                <li><a class="ondisabled" tabindex="-1" href="#" onClick="DeleteNode()">Удалить</a></li>
+                <li><a class="ondisabled" tabindex="-1" href="#" onClick="rename()">Переименовать</a></li>
+                <li><a class="ondisabled" tabindex="-1" href="#" onClick="CutNode()">Вырезать</a></li>
             </ul>
-        </div>-->
+        </menu>
+        <menu id="meny_node" class="menu">
+            <ul>
+                <li><a class="ondisabled" href="#" onClick="DeleteNode()">Удалить</a></li>
+                <li><a class="ondisabled" href="#" onClick="rename()">Переименовать</a></li>
+                <li><a class="ondisabled" tabindex="-1" href="#" onClick="CutNode()">Вырезать</a></li>
+                <li><a class="onempty" tabindex="-1" href="#" onClick="MoveNode()">Вставить</a></li>
+                <li><a href="#" onClick="menuAddNode()">Добавить каталог</a></li>
+                <li><a href="#" onClick="menuAddNodeEnd()">Добавить файл</a></li>
+            </ul>
+        </menu>
         
-        <ul id="main_ul">
-            <li>Животные
-              <ul>
-                <li>Млекопитающие
-                  <ul>
-                    <li>Коровы</li>
-                    <li>Ослы</li>
-                    <li>Собаки</li>
-                    <li>Тигры</li>
-                  </ul>
-                </li>
-                <li>Другие
-                  <ul>
-                    <li>Змеи</li>
-                    <li>Птицы</li>
-                    <li>Ящерицы</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>Рыбы
-              <ul>
-                <li>Аквариумные
-                  <ul>
-                    <li>Гуппи</li>
-                    <li>Скалярии</li>
-                  </ul>
-
-                </li>
-                <li>Морские
-                  <ul>
-                    <li>Морская форель</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-        </ul>
+        <div id="pop_up_window" class="dark" style="display:none">
+            <div class="window">
+              <span id="window_text"></span>
+              <input id="window_data" type="text"><br>
+              <button id="window_OK">OK</button>
+              <button id="window_Cancel">Cancel</button><br>
+            </div>
+        </div>
+        
+        <script src="js/commands.js"></script>
         <script src="js/mark.js"></script>
+        <script src="js/meny_controll.js"></script>
+        <script src="js/WSConnection.js"></script>
     </body>
 </html>
