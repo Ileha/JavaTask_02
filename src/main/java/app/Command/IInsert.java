@@ -30,8 +30,14 @@ public abstract class IInsert extends ICommand {
         return "INSERT INTO main_table (`name`, `type`, `ref`) VALUES(?, ?, ?)";
     }
 
+    //{cmd:"InsertContainer", data:{p_id,name}}
+    //{cmd:"InsertEnd", data:{p_id,name}}
     @Override
     public final SendingMode OnExecute(JSONObject data, JSONObject out) throws Exception {
+        if (data.getString("name").equals("")) {
+            throw new Exception("name can`t be empty");
+        }
+        
         check.setInt(1, data.getInt("p_id"));
         ResultSet resultSet = check.executeQuery();
         if (resultSet.next()) {

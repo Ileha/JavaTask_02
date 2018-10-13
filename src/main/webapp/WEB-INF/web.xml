@@ -2,7 +2,7 @@
 
 <web-app>
 
-  <servlet>
+<!--  <servlet>
     <servlet-name>test</servlet-name>
     <servlet-class>app.TestHandler</servlet-class>
   </servlet>
@@ -10,19 +10,9 @@
   <servlet-mapping>
     <servlet-name>test</servlet-name>
     <url-pattern>/test</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>-->
 
   <listener>
     <listener-class>app.ApplicationInitializer</listener-class>
   </listener>
-
-  <!--<servlet>-->
-    <!--<servlet-name>WsChatServlet</servlet-name>-->
-    <!--<servlet-class>app.WSHandler</servlet-class>-->
-  <!--</servlet>-->
-
-  <!--<servlet-mapping>-->
-    <!--<servlet-name>WsChatServlet</servlet-name>-->
-    <!--<url-pattern>/WsChatServlet</url-pattern>-->
-  <!--</servlet-mapping>-->
 </web-app>

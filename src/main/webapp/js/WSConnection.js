@@ -7,7 +7,7 @@ function GetNodeByParent(id_parent) {
     }));
 }
 
-var ws = new WebSocket("ws://"+ "10.0.1.249:8080" +"/mywebapp/chat");
+var ws = new WebSocket("ws://"+ document.location.host +"/"+document.location.pathname.split('/')[1]+"/chat");
 ws.onopen = function(){
     console.log("connect");
     GetNodeByParent(1);

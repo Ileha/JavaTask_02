@@ -1,27 +1,48 @@
 .selected {
-    background: #0f0;
+    background-color: #0071D3;
+}
+.footer {
+    position: fixed;
+    right: 0; bottom: 0;
+    width: 100%;
+    color: #696969;
+    text-align: right;
+    padding: 10px;
+}
+span:not([reduct]) {
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .node_icon {
     list-style: none;
-    background: url(../resources/folder.png) no-repeat;
+    background-image: url(../resources/folder.png);
+    background-repeat: no-repeat;
     padding-left: 24px;
     background-size: auto 15px;
 }
 .item_icon {
     list-style: none;
-    background: url(../resources/file.png) no-repeat;
+    background-image: url(../resources/file.png);
+    background-repeat: no-repeat;
     padding-left: 24px;
     background-size: auto 15px;
 }
 .node_open {
     list-style: none;
-    background: url(../resources/open_folder.png) no-repeat;
+    background-image: url(../resources/open_folder.png);
+    background-repeat: no-repeat;
     padding-left: 24px;
     background-size: auto 15px;
 }
 .node_load {
     list-style: none;
-    background: url(../resources/loading.gif) no-repeat;
+    background-image: url(../resources/loading.gif);
+    background-repeat: no-repeat;
     padding-left: 24px;
     background-size: auto 15px;
 }

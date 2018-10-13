@@ -5,6 +5,7 @@ var stateenum = Object.freeze(
         loading: 3
     }
 );
+var highlight = undefined;
 
 dom_node[1].ondblclick = function(event) {
     var target = event.target;
@@ -21,11 +22,21 @@ dom_node[1].ondblclick = function(event) {
     }
 };
 
-//main_panel.onclick = function(event) {
-//    var target = event.target;
-//    if (target.tagName != "LI") return;
-//
-//}
+document.onclick = function(event) {
+    var target = event.target;
+    TrashHighlight();
+    if (target.root_id === undefined) return;
+    SetHighlight(target);
+};
+
+function TrashHighlight() {
+    if (highlight === undefined) { return; }
+    highlight.classList.remove("selected");
+}
+function SetHighlight(target) {
+    highlight = target.text;
+    highlight.classList.add("selected");
+}
 
 function IsLeaf(target) {
     return (target.t === "f");

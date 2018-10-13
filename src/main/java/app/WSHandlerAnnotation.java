@@ -2,14 +2,12 @@ package app;
 
 import app.Command.SendingMode;
 import app.Singleton.CommandBagSingleton;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import javax.websocket.server.ServerEndpoint;
 import javax.websocket.*;
 import java.io.IOException;
-import java.io.Writer;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -52,12 +50,12 @@ public class WSHandlerAnnotation {
                 JSONObject data = new JSONObject();
                 err.put("err", data);
                 data.put("message", e.toString());
-                JSONArray arr = new JSONArray();
-                data.put("stack", arr);
-                StackTraceElement[] stack = e.getStackTrace();
-                for (int i = 0; i < stack.length; i++) {
-                    arr.put(stack[i].toString());
-                }
+//                JSONArray arr = new JSONArray();
+//                data.put("stack", arr);
+//                StackTraceElement[] stack = e.getStackTrace();
+//                for (int i = 0; i < stack.length; i++) {
+//                    arr.put(stack[i].toString());
+//                }
 
             } catch (JSONException e1) {
                 e1.printStackTrace();

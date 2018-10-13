@@ -33,13 +33,14 @@ function onContextMenu(e){
         current = undefined;
     }
     var disable = false;
-    
+    TrashHighlight();
     if(e.target.root_id == undefined) {
         choose = dom_node[1];  
         disable = true;
     }
     else {
         choose = e.target;
+        SetHighlight(choose);
     }
     
     var elements = document.querySelectorAll('.menu>ul>li>a.ondisabled');
@@ -86,6 +87,7 @@ function rename() {
         choose.text.removeChild(button_ok);
         choose.text.removeChild(button_cancel);
         choose.text.innerText = first_test;
+        choose.text.removeAttribute("reduct");
     };
     button_cancel = document.createElement('button');
     button_cancel.innerText = "Cancel";
@@ -94,10 +96,10 @@ function rename() {
         choose.text.removeChild(button_ok);
         choose.text.removeChild(button_cancel);
         choose.text.innerText = first_test;
+        choose.text.removeAttribute("reduct");
+        
     };
-    
-    
-    
+    choose.text.setAttribute("reduct", ""); 
     choose.text.innerHTML = "";
     choose.text.appendChild(obj);
     choose.text.appendChild(button_ok);
@@ -116,10 +118,10 @@ function menuAddNodeEnd() {
             }
         }));
         pop_up_window.swich();
-    }
+    };
     pop_up_window.button_cancel.onclick = function () {
         pop_up_window.swich();
-    }
+    };
     pop_up_window.swich();
 }
 

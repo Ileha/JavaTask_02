@@ -43,21 +43,10 @@
       <scope>provided</scope>
     </dependency>
 
-    <!--<dependency>-->
-      <!--<groupId>javax.websocket</groupId>-->
-      <!--<artifactId>javax.websocket-api</artifactId>-->
-      <!--<version>1.1</version>-->
-    <!--</dependency>-->
-
-    <!--<dependency>-->
-      <!--<groupId>org.apache.tomcat</groupId>-->
-      <!--<artifactId>tomcat-catalina</artifactId>-->
-      <!--<version>7.0.27</version>-->
-    <!--</dependency>-->
   </dependencies>
 
   <build>
-    <finalName>mywebapp</finalName>
+    <finalName>Tree</finalName>
     <resources>
         <resource>
             <directory>src/main/resources</directory>

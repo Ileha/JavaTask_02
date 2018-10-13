@@ -23,6 +23,9 @@ public class Rename extends ICommand {
     //{cmd:"Rename",data:{name="name", id=arg1}}
     @Override
     public SendingMode OnExecute(JSONObject data, JSONObject out) throws Exception {
+        if (data.getString("name").equals("")) {
+            throw new Exception("name can`t be empty");
+        }
         GetStatement().setString(1, data.getString("name"));
         GetStatement().setInt(2, data.getInt("id"));
         boolean success = GetStatement().executeUpdate() != 0;
